@@ -11,6 +11,10 @@ TagManager:
   - PlanetComplet
   - PlanetIncomplet
   - Planet
+  - Planeta_1
+  - Planeta_2
+  - Planeta_3
+  - Final
   layers:
   - Default
   - TransparentFX

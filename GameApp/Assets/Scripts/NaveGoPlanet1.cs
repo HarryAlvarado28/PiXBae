@@ -19,18 +19,32 @@ public class NaveGoPlanet1 : MonoBehaviour {
     */
     //-----------
     public float visionRadius;
-    public float speed;
+    public float speed = 30;
+    public int speed_Rot;
 
-    GameObject planet;
+    GameObject planet,nave;
     Vector3 initialPosition;
     // Use this for initialization
-    void Start()
-    {
+    /*
+    void busquedaPlaneta(string planeta,float rotacion){
+        nave = GameObject.FindGameObjectWithTag("Player");
         //RecalculateTargetPosition();
         //Simple AI
-
+        nave.transform.Rotate(new Vector3(0, 0, -50.347f+rotacion));
+        //nave.transform.RotateAround(transform.position, Vector3.back, speed_Rot * Time.deltaTime);
         planet = GameObject.FindGameObjectWithTag("Planet");
         initialPosition = transform.position;
+    }
+    */
+    void Start()
+    {
+//        busquedaPlaneta("Planeta_1");
+        nave = GameObject.FindGameObjectWithTag("Player");
+        nave.transform.Rotate(new Vector3(0, 0, -50.347f));
+        //nave.transform.RotateAround(transform.position, Vector3.back, speed_Rot * Time.deltaTime);
+        planet = GameObject.FindGameObjectWithTag("Planeta_1");
+        initialPosition = transform.position;
+
     }
 
     // Update is called once per frame
@@ -52,6 +66,7 @@ public class NaveGoPlanet1 : MonoBehaviour {
         Vector3 target = initialPosition;
         float dist = Vector3.Distance(planet.transform.position, transform.position);
         if (dist < visionRadius) target = planet.transform.position;
+
 
         float fixedSpeed = speed * Time.deltaTime;
 
